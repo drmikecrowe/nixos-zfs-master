@@ -25,7 +25,7 @@ Then, add the the modules to
   zfs-root.boot.availableKernelModules
 
 option inside the per-host configuration file.  This file is located
-at hosts/exampleHost/default.nix.
+at hosts/xps15/default.nix.
 
 By default, initrd uses DHCP auto-configuration for networking.  If
 you need to specify a static IP address, see the documentation for

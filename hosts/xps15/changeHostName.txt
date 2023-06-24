@@ -10,7 +10,7 @@ as output:
 
   {
     nixosConfigurations = {
-      exampleHost = { ... };
+      xps15 = { ... };
       host2 = { ... };
       host3 = { ... };
       ...
@@ -21,20 +21,20 @@ as output:
 The hostname specified here inside nixosConfigurations attrset is used
 when ``nix command'' is invoked, as in
 
-  nixos-install --flake ./#exampleHost
+  nixos-install --flake ./#xps15
 
 The hostname also appears in the filesystem path of the per-host
 configuration file:
 
-  hosts/exampleHost/default.nix
+  hosts/xps15/default.nix
   hosts/host2/default.nix
   ...
 
 Finally, the hostname is specified in the zfs-boot.networking.hostName
 option inside per-host configuration file at
-hosts/exampleHost/default.nix:
+hosts/xps15/default.nix:
 
-  zfs-boot.networking.hostName = "exampleHost";
+  zfs-boot.networking.hostName = "xps15";
 
 If the value of this option is identical to the name of
 nixosConfigurations.<hostname> attrset, all subsequent invocations of

@@ -1,6 +1,6 @@
 # #
 ##
-##  per-host configuration for exampleHost
+##  per-host configuration for xps15
 ##
 ##
 
@@ -22,7 +22,7 @@
     };
     networking = {
       # read changeHostName.txt file.
-      hostName = "exampleHost";
+      hostName = "xps15";
       timeZone = "Europe/Berlin";
       hostId = "abcd1234";
     };
@@ -31,7 +31,7 @@
   # To add more options to per-host configuration, you can create a
   # custom configuration module, then add it here.
   my-config = {
-    # Enable custom gnome desktop on exampleHost
+    # Enable custom gnome desktop on xps15
     template.desktop.gnome.enable = false;
   };
 }

@@ -8,8 +8,8 @@ LICENSE
 configuration.nix   <- configuration shared by all hosts
 flake.lock
 flake.nix
-hosts/exampleHost/default.nix  <- per-host configuration
-hosts/exampleHost/sshUnlock.txt
+hosts/xps15/default.nix  <- per-host configuration
+hosts/xps15/sshUnlock.txt
 modules/boot/default.nix
 modules/default.nix
 modules/fileSystems/default.nix
