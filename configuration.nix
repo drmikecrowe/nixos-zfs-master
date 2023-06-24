@@ -37,6 +37,17 @@
   services.openssh = {
     enable = lib.mkDefault true;
     settings = { PasswordAuthentication = lib.mkDefault false; };
+    hostKeys = [
+      {
+        path = "/persist/ssh/ssh_host_ed25519_key";
+        type = "ed25519";
+      }
+      {
+        path = "/persist/ssh/ssh_host_rsa_key";
+        type = "rsa";
+        bits = 4096;
+      }
+    ];
   };
 
   boot.zfs.forceImportRoot = lib.mkDefault false;
@@ -50,10 +61,29 @@
     sudo.enable = lib.mkDefault false;
   };
 
-  environment.systemPackages = builtins.attrValues {
-    inherit (pkgs)
-      mg # emacs-like editor
-      jq # other programs
-    ;
+  environment = {
+    variables = {
+      EDITOR = "vim";
+    };
+    systemPackages = with pkgs; [
+      git
+      file
+      gnupg
+      xclip
+      ripgrep
+      direnv
+      jq
+      mc 
+      tmux 
+      neovim
+    ];
+
+    # Wacky erase-root-on-every-boot stuff.
+    etc."NetworkManager/system-connections".source = "/rpool/persist/etc/NetworkManager/system-connections/";
   };
+
+  systemd.tmpfiles.rules = [
+    "L /var/lib/bluetooth - - - - /persist/var/lib/bluetooth"
+  ];
+  
 }
