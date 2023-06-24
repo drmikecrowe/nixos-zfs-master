@@ -9,8 +9,6 @@ zpool create \
     -O normalization=formD \
     -O relatime=on \
     -O xattr=sa \
-    -O mountpoint=none \
-    -O xattr=sa \
     -O mountpoint=/ \
     rpool \
    $(for i in ${DISK}; do
