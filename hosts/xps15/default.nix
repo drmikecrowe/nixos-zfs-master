@@ -8,10 +8,10 @@
   inherit pkgs system;
   zfs-root = {
     boot = {
-      devNodes = "/dev/disk/by-id/";
-      bootDevices = [ "bootDevices_placeholder" ];
+      devNodes = "/dev/";
+      bootDevices = [  "nvme0n1" ];
       immutable = false;
-      availableKernelModules = [ "kernelModules_placeholder" ];
+      availableKernelModules = [  "xhci_pci" "ahci" "nvme" "usb_storage" "uas" "sd_mod" "rtsx_pci_sdmmc" ];
       removableEfi = true;
       kernelParams = [ ];
       sshUnlock = {
@@ -24,7 +24,7 @@
       # read changeHostName.txt file.
       hostName = "xps15";
       timeZone = "Europe/Berlin";
-      hostId = "abcd1234";
+      hostId = "0dbbe8df";
     };
   };
 
