@@ -11,7 +11,8 @@ zpool create \
     -O relatime=on \
     -O xattr=sa \
     -O mountpoint=/boot \
+    -R "${MNT}" \
     bpool \
     $(for i in ${DISK}; do
-       printf '%s ' "${i}p2";
+       printf '%s ' "${i}-part2";
       done)

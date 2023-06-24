@@ -1,5 +1,5 @@
 for i in ${DISK}; do
-   cryptsetup open --type plain --key-file /dev/random "${i}"p4 "${i##*/}"p4
-   mkswap /dev/mapper/"${i##*/}"p4
-   swapon /dev/mapper/"${i##*/}"p4
+   cryptsetup open --type plain --key-file /dev/random "${i}"-part4 "${i##*/}"-part4
+   mkswap /dev/mapper/"${i##*/}"-part4
+   swapon /dev/mapper/"${i##*/}"-part4
 done
